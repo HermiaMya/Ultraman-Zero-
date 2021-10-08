@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<form>
+			<input type="file" id="file1" name="file1" />
+			
+			<input type="submit" />
+			<img id="img1" src=""/>
+		</form>
+		
+		<script>
+			//选择图片后，预览图片
+			
+			document.getElementById("file1").onchange=function(){
+				//1 创建文件读取对象
+				var reader=new FileReader();
+				document.getElementById("file1").src
+				//文件存储在file表单元素的files属性中，它是一个数组
+				//没有返回值，但是读取完毕后，将读取结果存储在对象的result中
+				var fil=document.getElementById("file1").files;
+				reader.readAsDataURL(fil[0]);
+				
+				//当读取成功后触发
+				reader.onload=function(){
+					document.getElementById("img1").src=reader.result;
+				};
+			};
+		</script>
+	</body>
+</html>
