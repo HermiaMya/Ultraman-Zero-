@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>picApic</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link href='https://fonts.useso.com/css?family=Exo:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div id=background></div>
+    <div id=image></div>
+    <div id=container>
+
+        <div class=inputname>grayscale灰度</div>
+        <input value=0 min=0 max=100 step=any id=grayscale type=range>
+
+        <div class=inputname>blur模糊度</div>
+        <input value=0 min=0 max=10 step=any id=blur type=range>
+
+        <div class=inputname>brightness亮度</div>
+        <input value=100 min=0 max=200 step=any id=brightness type=range>
+
+        <div class=inputname>contrast对比度</div>
+        <input value=100 min=0 max=200 step=any id=contrast type=range>
+
+        <div class=inputname>hue-rotate色相</div>
+        <input value=0 min=0 max=360 step=any id=huerotate type=range>
+
+        <div class=inputname>invert反转</div>
+        <input value=0 min=0 max=100 step=any id=invert type=range>
+
+        <div class=inputname>opacity透明度</div>
+        <input value=100 min=0 max=100 step=any id=opacity type=range>
+
+        <div class=inputname>saturate饱和度</div>
+        <input value=1 min=0 max=5 step=any id=saturate type=range>
+
+        <div class=inputname>sepia棕色效果</div>
+        <input value=0 min=0 max=100 step=any id=sepia type=range>
+    </div>
+    <div id=options>
+        <div id="reset">Reset</div>
+        <input type="file" id="file1" name="file1" />
+    </div>
+    <div id="imagecolor" style="display: flex;width: 100%;"></div>
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+
+</html>
