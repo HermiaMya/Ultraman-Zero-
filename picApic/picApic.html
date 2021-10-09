@@ -10,10 +10,11 @@
 <div id=background></div>
 <div id=image></div>
 <div id=container>
-
+	
     <div class=inputname>grayscale灰度</div>
-    <input value=0 min=0 max=100 step=any id=grayscale type=range>
-
+	<input value=0 min=0 max=100 step=any id=grayscale oninput="change1()" type=range>
+	<input id="show" type=number onchange="change2()" >
+	
     <div class=inputname>blur模糊度</div>
     <input value=0 min=0 max=10 step=any id=blur type=range>
 
