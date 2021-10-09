@@ -17,11 +17,17 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background-image: url(http://www.transparenttextures.com/patterns/pinstriped-suit.png);
-    background-size: 12%;
+    /* background-image: url(http://www.transparenttextures.com/patterns/pinstriped-suit.png); */
+	background-image: url(https://img12.360buyimg.com/ddimg/jfs/t1/156853/40/25273/71501/61616fc8Edd9a64dd/44c2b70ae18e64cc.jpg);
+    background-size: 100%;
     background-attachment: fixed;
     background-repeat: repeat;
     /*------------- COLORS ------------*/
+	/*简约皮卡丘 https://img12.360buyimg.com/ddimg/jfs/t1/156853/40/25273/71501/61616fc8Edd9a64dd/44c2b70ae18e64cc.jpg
+	3d皮卡丘 https://img11.360buyimg.com/ddimg/jfs/t1/205170/1/10393/239517/61617061E99c4db87/a4560631e988c0c4.jpg
+	https://img11.360buyimg.com/ddimg/jfs/t1/137823/12/22800/463082/616170e2E3ae06e69/46d4402505469cc3.jpg
+	https://img14.360buyimg.com/ddimg/jfs/t1/197993/6/12307/110645/6161712fE06bf94c1/67fd710216b5a809.jpg
+	*/
 }
 #reset,
 .inputname {

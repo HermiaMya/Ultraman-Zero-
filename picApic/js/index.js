@@ -31,6 +31,7 @@ document.getElementById("file1").onchange = function() {
 
             var imgData = ctx.getImageData(0, 0, w, h);
             CalculateGray(imgData);
+			CalculateAlpha(imgData);
             CalculateContrast(imgData, w);
             CalculateSaturation(imgData);
             CalculateHue(imgData);
@@ -40,30 +41,36 @@ document.getElementById("file1").onchange = function() {
 
 };
 //计算亮度、灰度
-function CalculateGray(imgData) {
-    var gray = 0;
-    for (var i = 0; i < imgData.data.length; i += 4) { //遍历图像矩阵
-        var R = imgData.data[i]; //R(0-255)
-        var G = imgData.data[i + 1]; //G(0-255)
-        var B = imgData.data[i + 2]; //G(0-255)
-        var Alpha = imgData.data[i + 3]; //Alpha(0-255)
-        //浮点算法
-        gray += R * 0.299 + G * 0.587 + B * 0.114;
-    }
-    alert(gray / imgData.data.length);
+function CalculateGray(imgData){
+	var gray = 0;
+	for (var i = 0 ; i < imgData.data.length ; i+=4){      //遍历图像矩阵
+	   var R = imgData.data[i]; //R(0-255)
+	   var G = imgData.data[i+1]; //G(0-255)
+	   var B = imgData.data[i+2]; //G(0-255)
+	   var Alpha = imgData.data[i+3]; //Alpha(0-255)
+	   //浮点算法
+	   gray += R*0.299 + G*0.587 + B*0.114;
+	  }
+	var ans = gray/imgData.data.length;
+	var location=document.getElementById("grayscale1");
+	location.value = parseInt(ans);
+	
 }
 //计算透明度
-function CalculateAlpha(imgData) {
-    var sum = 0;
-    for (var i = 0; i < imgData.data.length; i += 4) {
-        var R = imgData.data[i]; //R(0-255)
-        var G = imgData.data[i + 1]; //G(0-255)
-        var B = imgData.data[i + 2]; //G(0-255)
-        var Alpha = imgData.data[i + 3]; //Alpha(0-255)
-        sum += Alpha;
-    }
-    window.alert(sum / imgData.data.length);
-}
+ function CalculateAlpha(imgData){
+ 	 var sum = 0;
+ 	 for (var i = 0 ; i < imgData.data.length ; i+=4){
+ 	    var R = imgData.data[i]; //R(0-255)
+ 	    var G = imgData.data[i+1]; //G(0-255)
+ 	    var B = imgData.data[i+2]; //G(0-255)
+ 	    var Alpha = imgData.data[i+3]; //Alpha(0-255)
+	    sum += Alpha;
+ 	  }
+ 	  var ans = sum/imgData.data.length;
+	  var location=document.getElementById("blur1");
+	  location.value = parseInt(ans);
+ }
+ 
 //提取主颜色
 function CalculateHue(imgData) {
     var rgbArray = new Array();
@@ -80,7 +87,6 @@ function CalculateHue(imgData) {
     }
     console.log(rgbArray);
     GetColor(rgbArray);
-
 };
 
 function GetColor(cube) {
@@ -191,8 +197,9 @@ function CalculateSaturation(imgData) {
             saturation = s + saturation;
         }
     }
-    saturation = saturation / num;
-    alert(saturation);
+	var ans = saturation / num;
+	var location=document.getElementById("saturate1");
+	location.value = parseInt(ans);
 };
 //计算对比度
 function CalculateContrast(imgData, w) {
@@ -249,9 +256,97 @@ function CalculateContrast(imgData, w) {
         }
     }
 
-    alert(contrast / num);
+	var ans = contrast / num;
+	var location=document.getElementById("contrast1");
+	location.value = ans;
 
 }
+
+function change1(){ 
+      var grayscale = $("#grayscale").val(),
+          blur = $("#blur").val(),
+          brightness = $("#brightness").val(),
+          contrast = $("#contrast").val(),
+          huerotate = $("#huerotate").val(),
+          invert = $("#invert").val(),
+          opacity = $("#opacity").val(),
+          saturate = $("#saturate").val(),
+          sepia = $("#sepia").val();
+		  
+      var location1 = document.getElementById("grayscale1"),
+	      location2 = document.getElementById("blur1"),
+		  location3 = document.getElementById("brightness1"),
+		  location4 = document.getElementById("contrast1"),
+		  location5 = document.getElementById("hue-rotate"),
+		  location6 = document.getElementById("invert1"),
+		  location7 = document.getElementById("opacity1"),
+		  location8 = document.getElementById("saturate1"),
+		  location9 = document.getElementById("sepia1");
+	  
+      location1.value = parseInt(grayscale); 
+	  location2.value = parseInt(blur);
+	  location3.value = parseInt(brightness);
+	  location4.value = parseInt(contrast);
+	  location5.value = parseInt(huerotate);
+	  location6.value = parseInt(invert);
+	  location7.value = parseInt(opacity);
+	  location8.value = saturate;
+	  location9.value = parseInt(sepia);
+	  
+} 
+
+function change2(){
+       var location1 = document.getElementById("grayscale1"),
+           location2 = document.getElementById("blur1"),
+       	   location3 = document.getElementById("brightness1"),
+       	   location4 = document.getElementById("contrast1"),
+       	   location5 = document.getElementById("hue-rotate"),
+       	   location6 = document.getElementById("invert1"),
+       	   location7 = document.getElementById("opacity1"),
+       	   location8 = document.getElementById("saturate1"),
+       	   location9 = document.getElementById("sepia1"); 
+		   
+	   var grayscale = location1.value,
+		   blur = location2.value,
+	       brightness = location3.value,
+	       contrast = location4.value,
+	       huerotate = location5.value,
+	       invert = location6.value,
+	       opacity = location7.value,
+	       saturate = location8.value,
+	       sepia = location9.value;
+	   
+	   $("#grayscale").val(grayscale);
+	   $("#blur").val(blur);
+	   $("#brightness").val(brightness);
+	   $("#contrast").val(contrast);
+	   $("#huerotate").val(huerotate);
+	   $("#invert").val(invert);
+	   $("#opacity").val(opacity);
+	   $("#saturate").val(saturate);
+	   $("#sepia").val(sepia);
+	   
+	   $("#image").css({
+	       "-webkit-filter": "grayscale(" + grayscale + "%)" +
+	           "blur(" + blur + "px)" + "brightness(" + brightness + "%)" +
+	           " contrast(" + contrast + "%)" +
+	           " hue-rotate(" + huerotate + "deg)" +
+	           " invert(" + invert + "%)" +
+	           " opacity(" + opacity + "%)" +
+	           " saturate(" + saturate + ")" +
+	           " sepia(" + sepia + "%)",
+	   
+	       "filter": "grayscale(" + grayscale + "%)" +
+	           "blur(" + blur + "px)" + "brightness(" + brightness + "%)" +
+	           " contrast(" + contrast + "%)" +
+	           " hue-rotate(" + huerotate + "deg)" +
+	           " invert(" + invert + "%)" +
+	           " opacity(" + opacity + "%)" +
+	           " saturate(" + saturate + ")" +
+	           " sepia(" + sepia + "%)"
+	   });
+ } 
+
 
 $(function() {
     $("#reset").click(function() {
@@ -267,12 +362,30 @@ $(function() {
         $("#sepia").val(0);
         $("#image").css("-webkit-filter", "none");
         $("#image").css("-moz-filter", "none");
+		
+		var location1 = document.getElementById("grayscale1"),
+		    location2 = document.getElementById("blur1"),
+				  location3 = document.getElementById("brightness1"),
+				  location4 = document.getElementById("contrast1"),
+				  location5 = document.getElementById("hue-rotate"),
+				  location6 = document.getElementById("invert1"),
+				  location7 = document.getElementById("opacity1"),
+				  location8 = document.getElementById("saturate1"),
+				  location9 = document.getElementById("sepia1");
+		
+		location1.value = 0; 
+		location2.value = 0;
+		location3.value = 100;
+		location4.value = 100;
+		location5.value = 0;
+		location6.value = 0;
+		location7.value = 100;
+		location8.value = 1;
+		location9.value = 0;
     });
 });
 
 $(document).ready(function() {
-
-
     $("input").on("input", function() {
         var grayscale = $("#grayscale").val(),
             blur = $("#blur").val(),
@@ -283,7 +396,7 @@ $(document).ready(function() {
             opacity = $("#opacity").val(),
             saturate = $("#saturate").val(),
             sepia = $("#sepia").val();
-
+		
 
         $("#image").css({
             "-webkit-filter": "grayscale(" + grayscale + "%)" +
@@ -306,8 +419,8 @@ $(document).ready(function() {
         });
 
     });
-
-    //放大图片
+	
+//放大图片
     $("#image").click(function() {
         $("#image").toggleClass("zoomed");
 
