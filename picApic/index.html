@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>picApic</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link href='https://fonts.useso.com/css?family=Exo:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div id=background></div>
+    <div id=image class="test"></div>
+    <div id=options>
+        <div id="imagecolor" style="display: flex;margin-left: 50%;"></div>
+
+        <div class=upload>上传ヾ(•ω•`)o
+            <input type="file" id="file1" name="file1" onchange="LoadImage()" />
+            <audio id="music"><source src="sound/pikapik.mp3"> </audio>
+        </div>
+
+
+
+
+    </div>
+
+    <div id=container style="display: inline-block;
+    vertical-align: top;width: 75%;margin-left: 26%;">
+        <div id=container1>
+
+            <div class=inputname>grayscale灰度</div>
+            <input value=0 min=0 max=100 step=any id=grayscale oninput="change1()" type=range>
+            <input id="grayscale1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+            <audio id="music2"><source src="sound/pika.mp3"> </audio>
+
+            <div class=inputname>blur模糊度</div>
+            <input value=0 min=0 max=10 step=any id=blur oninput="change1()" type=range>
+            <input id="blur1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+
+            <div class=inputname>brightness亮度</div>
+            <input value=100 min=0 max=200 step=any id=brightness oninput="change1()" type=range>
+            <input id="brightness1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+
+            <div class=inputname>contrast对比度</div>
+            <input value=100 min=0 max=200 step=any id=contrast oninput="change1()" type=range>
+            <input id="contrast1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+            <div id="reset" style="margin-left:0%;">Reset</div>
+            <audio id="music3"><source src="sound/pikachu.mp3"> </audio>
+
+
+        </div>
+        <div id=container2>
+            <div class=inputname>hue-rotate色相</div>
+            <input value=0 min=0 max=360 step=any id=huerotate oninput="change1()" type=range>
+            <input id="hue-rotate" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+
+            <div class=inputname>invert反转</div>
+            <input value=0 min=0 max=100 step=any id=invert oninput="change1()" type=range>
+            <input id="invert1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+
+            <div class=inputname>opacity透明度</div>
+            <input value=100 min=0 max=100 step=any id=opacity oninput="change1()" type=range>
+            <input id="opacity1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+
+            <div class=inputname>saturate饱和度</div>
+            <input value=1 min=0 max=1 step=any id=saturate oninput="change1()" type=range>
+            <input id="saturate1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+
+            <div class=inputname>sepia棕色效果</div>
+            <input value=0 min=0 max=100 step=any id=sepia oninput="change1()" type=range>
+            <input id="sepia1" type=number onchange="change2()" style="border: none; border-radius: 16px;padding-left: 8px;" />
+
+        </div>
+    </div>
+    <h2 class="toCanvas"> <a href="javascript:void(0);" class="intoCanvas"> 转成图片 </a></h2>
+
+    <h5>
+        <label for="imgW">宽度:</label>
+        <input type="number" value="" id="imgW" class="imgw" placeholder="默认是原图宽度" />
+        <label for="imgH">高度:</label>
+        <input type="number" value="" id="imgH" class="imgh" placeholder="默认是原图高度" />
+        <label for="imgFileName">文件名:</label>
+        <input type="text" placeholder="文件名" id="imgFileName" class="imgFileName" />
+        <select id="sel" class="sel">
+		                <option value="png">png</option>
+		                <option value="jpeg">jpeg</option>
+		                <option value="bmp">bmp</option>
+		            </select>
+        <button id="save" class="saveimg">确定</button>
+    </h5>
+
+    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/canvas2image.js"></script>
+    <script type="text/javascript" src="js/html2canvas.min.js"></script>
+</body>
+
+</html>
