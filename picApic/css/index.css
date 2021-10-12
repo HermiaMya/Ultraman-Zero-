@@ -2,6 +2,12 @@
     margin: 0;
     padding: 0;
 }
+
+@font-face {
+    font-family: "huxiaobo";
+    src: url("../font/HuXiaoBoSaoBaoTi-2.otf") format("opentype"), url("../font/HuXiaoBoSaoBaoTi-2.otf") format("truetype"), url("../font/HuXiaoBoSaoBaoTi-2.woff") format("woff");
+}
+
 body {
     background: #fff;
     background-image: -webkit-linear-gradient(top left, #fff, #b4b4b4);
@@ -9,7 +15,40 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    font-family: "huxiaobo";
 }
+
+.upload {
+    position: relative;
+    display: inline-block;
+    background: rgb(225, 115, 92);
+    border-radius: 16px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    font-size: 20px;
+    width: 230px;
+    margin-left: 45%;
+    margin-top: 20px;
+}
+
+.upload input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+
+.upload:hover {
+    background: rgb(215, 182, 111);
+    color: #000;
+    text-decoration: none;
+}
+
 #background {
     z-index: -1;
     opacity: 1;
@@ -18,38 +57,39 @@ body {
     width: 100%;
     height: 100%;
     /* background-image: url(http://www.transparenttextures.com/patterns/pinstriped-suit.png); */
-	background-image: url(https://img12.360buyimg.com/ddimg/jfs/t1/156853/40/25273/71501/61616fc8Edd9a64dd/44c2b70ae18e64cc.jpg);
+    background-image: url(https://img12.360buyimg.com/ddimg/jfs/t1/156853/40/25273/71501/61616fc8Edd9a64dd/44c2b70ae18e64cc.jpg);
     background-size: 100%;
     background-attachment: fixed;
     background-repeat: repeat;
     /*------------- COLORS ------------*/
-	/*简约皮卡丘 https://img12.360buyimg.com/ddimg/jfs/t1/156853/40/25273/71501/61616fc8Edd9a64dd/44c2b70ae18e64cc.jpg
-	3d皮卡丘 https://img11.360buyimg.com/ddimg/jfs/t1/205170/1/10393/239517/61617061E99c4db87/a4560631e988c0c4.jpg
-	https://img11.360buyimg.com/ddimg/jfs/t1/137823/12/22800/463082/616170e2E3ae06e69/46d4402505469cc3.jpg
-	https://img14.360buyimg.com/ddimg/jfs/t1/197993/6/12307/110645/6161712fE06bf94c1/67fd710216b5a809.jpg
-	*/
 }
+
 #reset,
 .inputname {
-    background: firebrick;
     color: #000;
-    font-family: 'Exo', sans-serif;
+    font-family: huxiaobo;
 }
-#reset:hover,{
+
+#reset:hover,
+{
     background: #ef7126;
     border-color: #218c8d;
 }
+
 input[type="range"] {
-    background: #333;
+    background: rgb(225, 115, 92);
     /*------------------------------------------*/
 }
+
 #image {
     z-index: 20;
     overflow: hidden;
     float: left;
-    width: 66%;
+    width: 98%;
+    margin-top: 2%;
     min-height: 400px;
-    background-image: url(https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg);
+    /*background-image: url(https://yt3.ggpht.com/-V92UP8yaNyQ/AAAAAAAAAAI/AAAAAAAAAAA/zOYDMx8Qk3c/s900-c-k-no/photo.jpg);*/
+    background-image: url(https://sm.ms/image/NGrhZ5PRQHmFXYn.jpg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -58,122 +98,273 @@ input[type="range"] {
     -webkit-transition: width 0.3s linear, height 0.3s linear, background 0.3s linear, box-shadow 0.3s linear;
     transition: width 0.3s linear, height 0.3s linear, background 0.3s linear, box-shadow 0.3s linear;
 }
+
 .zoomed {
-    background: #000;
+    background: rgb(225, 115, 92);
     width: 100% !important;
     min-height: 600px !important;
-    box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px rgb(225, 115, 92);
     cursor: -webkit-zoom-out !important;
     cursor: zoom-out !important;
 }
-#container {
-    z-index: 10;
+
+#container1 {
+    z-index: 0;
+    display: inline-block;
+    vertical-align: top;
     overflow: hidden;
-    float: right;
+    margin-right: 2%;
+    padding-left: 5px;
+    margin-top: 1%;
     width: 33%;
-    text-align: center;
+    text-align: left;
     -webkit-transition: width 0.3s linear;
     transition: width 0.3s linear;
 }
+
+#container2 {
+    margin-top: 1%;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 0%;
+    padding-left: 5px;
+    z-index: 0;
+    overflow: hidden;
+    width: 33%;
+    text-align: left;
+    -webkit-transition: width 0.3s linear;
+    transition: width 0.3s linear;
+}
+
 input[type="range"] {
     -webkit-appearance: none;
     outline: none;
-    width: 60%;
+    width: 80%;
     height: 4px;
-    margin: 19px 16%;
+    margin-top: 19px;
+    margin-left: 0px;
     border-radius: 5px;
 }
-.inputname {
-    width: 40%;
+
+.intoCanvas {
+    position: relative;
+    display: inline-block;
+    background: rgb(225, 115, 92);
+    border-radius: 16px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    font-size: 20px;
+    width: 230px;
+    margin-left: 40%;
+    margin-top: 10px;
+    font-size: 20px;
+    opacity: 80%;
+}
+
+.sel {
+    position: relative;
+    display: inline-block;
+    background: rgb(225, 115, 92);
+    border-radius: 16px;
+    border: none;
+    padding-left: 25px;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 10px;
+    font-size: 20px;
+    width: 230px;
+    height: 30px;
+    font-family: huxiaobo;
+    margin-top: 20px;
+    margin-left: 40%;
+    opacity: 80%;
+}
+
+.saveimg {
+    position: relative;
+    display: inline-block;
+    background: rgb(225, 115, 92);
+    border-radius: 16px;
+    border: none;
+    overflow: hidden;
+    color: #fff;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+    font-size: 20px;
+    width: 230px;
+    margin-top: 20px;
+    margin-left: 40%;
+    padding: 4px 12px;
+    font-family: huxiaobo;
+}
+
+label {
+    width: 100%;
     min-width: 150px;
     height: 25px;
-    margin: 20px auto -5px;
-    background: #333;
+    float: left;
+    margin-left: 26%;
+    margin-top: 10px;
+    font-family: huxiaobo;
     line-height: 25px;
-    font-size: 17px;
+    font-size: 30px;
     font-weight: 400;
     letter-spacing: 0.1em;
     -webkit-font-smoothing: antialiased;
-    border: 1px dashed #ccc;
     border-radius: 2px;
     color: #fff;
     text-shadow: 0 2px 3px #000;
-    box-shadow: inset 0 0 4px #000, 0 0 1px 1px #000, inset 0 0 15px 1px #000;
 }
+
+.imgw {
+    float: left;
+    margin-left: 30%;
+    margin-top: 10px;
+    width: 520px;
+}
+
+.imgh {
+    float: left;
+    margin-left: 30%;
+    margin-top: 10px;
+    width: 520px;
+}
+
+.imgFileName {
+    float: left;
+    margin-left: 30%;
+    margin-top: 10px;
+    width: 520px;
+}
+
+input[type="number"] {
+    font-size: 25px;
+    color: rgb(108, 107, 107);
+    border: none;
+    border-radius: 16px;
+    padding-left: 16px;
+    font-family: huxiaobo;
+    height: 25px;
+}
+
+input[type="text"] {
+    font-size: 25px;
+    height: 25px;
+    color: rgb(108, 107, 107);
+    border: none;
+    border-radius: 16px;
+    padding-left: 16px;
+    font-family: huxiaobo;
+}
+
+.inputname {
+    width: 100%;
+    min-width: 150px;
+    height: 25px;
+    margin: 20px auto -5px;
+    font-family: huxiaobo;
+    line-height: 25px;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    -webkit-font-smoothing: antialiased;
+    border-radius: 2px;
+    color: #fff;
+    text-shadow: 0 2px 3px #000;
+}
+
 .inputname:first-letter {
     text-transform: uppercase;
-    color: #2a7e43;
+    color: rgb(225, 115, 92);
     font-weight: bold;
-    font-size: 25px;
+    font-size: 35px;
 }
+
 .inputname:first-of-type {
     margin-top: 20px;
 }
+
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 20px;
-    height: 20px;
-    background: #ccc;
-    border: 5px solid firebrick;
-    box-shadow: inset 0 1px 3px #000, 0 0 2px #000;
+    width: 15px;
+    height: 15px;
+    background: rgb(247, 222, 130);
+    border: none;
+    box-shadow: inset 0 1px 3px rgb(181, 150, 84), 0 0 2px rgb(181, 150, 84);
     border-radius: 50%;
     -webkit-transition: all 0.1s linear;
     transition: all 0.1s linear;
     cursor: pointer;
 }
+
 input[type=range]:active::-webkit-slider-thumb {
     -webkit-transform: scale(1.5);
     transform: scale(1.5);
 }
+
 input[type=range]::-moz-range-track {
     height: 5px;
-    background: #333;
+    background: rgb(225, 115, 92);
     border-radius: 5px;
 }
+
 input[type=range]::-moz-range-thumb {
     width: 10px;
     height: 10px;
     background: #fff;
     border: 5px solid firebrick;
-    box-shadow: inset 0 1px 1px #000;
+    box-shadow: inset 0 1px 1px rgb(225, 115, 92);
     border-radius: 50%;
     cursor: pointer;
 }
+
 input[type=range]:active::-moz-range-thumb {
     transform: scale(1.5);
 }
+
 #options {
     width: 66%;
     float: left;
     margin-top: 20px;
     text-align: center;
 }
+
 #reset {
-    width: 30%;
+    width: 80%;
     height: 30px;
     margin-top: 20px;
-    margin-left: 35%;
+    margin-left: 0%;
+    padding-bottom: 10px;
+    background-color: rgb(215, 182, 111);
+    border-radius: 32px;
     text-align: center;
+    font-family: huxiaobo;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 40px;
     line-height: 30px;
     cursor: pointer;
-    box-shadow: inset 0 0 10px 1px #000, 0 0 0 1px rgba(0, 0, 0, .5), 0 2px 5px #000;
-    border-radius: 5px;
     -webkit-transition: all 0.3s linear, -webkit-transform 0.1s linear;
     transition: all 0.3s linear, transform 0.1s linear;
 }
+
 #reset:active {
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
     transform: scale(0.9);
 }
+
 #reset:first-letter {
-    color: #2a7e43;
-    font-size: 28px;
+    color: rgb(225, 115, 92);
+    font-size: 45px;
     text-shadow: 0 2px 2px #000;
 }
-
 
 @-webkit-keyframes placeholder {
     from {
@@ -183,6 +374,7 @@ input[type=range]:active::-moz-range-thumb {
         color: #abc;
     }
 }
+
 #showcase {
     opacity: 0.7;
     position: absolute;
@@ -194,6 +386,7 @@ input[type=range]:active::-moz-range-thumb {
     background-image: url(http://blog.codepen.io/wp-content/uploads/2012/06/Button-Fill-Black-Large.png);
     cursor: pointer;
 }
+
 #showcase:hover {
     opacity: 1;
     /*sorry for sloppy code*/
